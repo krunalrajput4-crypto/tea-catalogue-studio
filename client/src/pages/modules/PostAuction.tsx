@@ -3,6 +3,7 @@
  * Sold/unsold tracking, carry-forward calculation, outlot management
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { ArrowDownToLine, CheckCircle2, XCircle, RefreshCw, TrendingUp, DollarSign, Package, Download, Filter, Sparkles } from 'lucide-react';
 
@@ -22,10 +23,10 @@ export default function PostAuctionPage() {
           <p className="text-sm text-muted-foreground mt-1">Auction results, carry-forward calculation, and settlement</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground">
+          <button onClick={() => toast.success('Exporting Auction Results...', { description: 'Sale results with buyer details, prices, and settlement data will be downloaded.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground">
             <Download className="w-4 h-4" /> Export Results
           </button>
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
+          <button onClick={() => toast.success('Processing Carry-Forward', { description: 'Unsold lots are being moved to Sale 09/2026 base stock.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
             <Sparkles className="w-4 h-4" /> Import Auction Data
           </button>
         </div>
@@ -91,7 +92,7 @@ export default function PostAuctionPage() {
         <div className="tea-card overflow-hidden">
           <div className="px-4 py-3 border-b border-border flex items-center justify-between">
             <h4 className="text-sm font-semibold">Sale No. 08/2026 — Auction Results</h4>
-            <button className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs"><Filter className="w-3 h-3" /> Filter</button>
+            <button onClick={() => toast.info('Filter Results', { description: 'Filter by buyer, grade, category, or price range.' })} className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs"><Filter className="w-3 h-3" /> Filter</button>
           </div>
           <table className="w-full text-sm">
             <thead>

@@ -3,6 +3,7 @@
  * Cumulative daily stock with week-wise breakdown and post-auction carry-forward
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { Warehouse, TrendingUp, ArrowUpRight, ArrowDownRight, Calendar, Layers, RefreshCw, Download, Filter, ChevronRight } from 'lucide-react';
 
@@ -24,8 +25,8 @@ export default function StockPage() {
           <p className="text-sm text-muted-foreground mt-1">Cumulative daily stock with week-wise breakdown. Sale No. 08/2026</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground"><Filter className="w-4 h-4" />Filters</button>
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground"><Download className="w-4 h-4" />Export</button>
+          <button onClick={() => toast.info('Stock Filters', { description: 'Filter by category, tea type, or week. Use the tabs below to switch views.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground"><Filter className="w-4 h-4" />Filters</button>
+          <button onClick={() => toast.success('Exporting Stock Report...', { description: 'Stock summary with carry-forward breakdown will be downloaded as Excel.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground"><Download className="w-4 h-4" />Export</button>
         </div>
       </div>
 

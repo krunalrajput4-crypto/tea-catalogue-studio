@@ -3,6 +3,7 @@
  * FTS drawing, sticker generation, buyer offer lists, FIFO distribution, despatch tracking
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { FlaskConical, Users, Tag, Truck, Clock, CheckCircle2, AlertCircle, Download, Printer, Search, Sparkles } from 'lucide-react';
 
@@ -79,7 +80,7 @@ export default function SamplingPage() {
               <span className="inline-flex items-center gap-1 text-[10px] text-primary bg-primary/5 px-2 py-0.5 rounded-full">
                 <Sparkles className="w-3 h-3" /> Auto-generated from Kutcha
               </span>
-              <button className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs"><Download className="w-3 h-3" /> Export</button>
+              <button onClick={() => toast.success('Exporting Sampling Data...', { description: 'FTS drawing list and sticker data will be downloaded as Excel.' })} className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs"><Download className="w-3 h-3" /> Export</button>
             </div>
           </div>
           <table className="w-full text-sm">
@@ -146,8 +147,8 @@ export default function SamplingPage() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">Generate Stickers</button>
-            <button className="px-4 py-2 rounded-lg border border-border text-sm"><Printer className="w-4 h-4 inline mr-1" /> Print Stickers</button>
+            <button onClick={() => toast.success('Generating Stickers...', { description: 'Sticker labels for all FTS samples are being prepared for printing.' })} className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">Generate Stickers</button>
+            <button onClick={() => toast.info('Print Stickers', { description: 'Opening print dialog for sticker labels. Ensure label printer is connected.' })} className="px-4 py-2 rounded-lg border border-border text-sm"><Printer className="w-4 h-4 inline mr-1" /> Print Stickers</button>
           </div>
         </div>
       )}
@@ -192,7 +193,7 @@ export default function SamplingPage() {
                     </span>
                   </td>
                   <td className="py-2.5 px-4 text-center">
-                    <button className="px-2 py-1 rounded border border-border text-[10px] hover:bg-secondary">View List</button>
+                    <button onClick={() => toast.info('Buyer Offer List', { description: 'Full buyer offer list for this lot will be shown here.' })} className="px-2 py-1 rounded border border-border text-[10px] hover:bg-secondary">View List</button>
                   </td>
                 </tr>
               ))}

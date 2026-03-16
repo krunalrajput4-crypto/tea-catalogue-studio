@@ -3,6 +3,7 @@
  * Kutcha/Trade/Tasting/Limits formats. All requirements unchanged.
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { BookOpen, FileText, Download, Printer, Upload, Eye, CheckCircle2, Clock } from 'lucide-react';
 
@@ -29,7 +30,7 @@ export default function CataloguePage() {
           <p className="text-sm text-muted-foreground mt-1">Generate and export catalogue in multiple formats</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground">
+          <button onClick={() => toast.info('Export Settings', { description: 'Configure column order, page layout, and branding for the catalogue export.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground">
             <Upload className="w-4 h-4" /> Portal Upload Format
           </button>
         </div>
@@ -125,7 +126,7 @@ export default function CataloguePage() {
         </div>
         <p className="text-xs text-muted-foreground mb-4">Auto-map fields to auction portal format and generate upload-ready file.</p>
         <div className="flex items-center gap-3">
-          <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
+          <button onClick={() => toast.success('Generating Catalogue...', { description: 'Catalogue is being generated in the selected format. This will take a few seconds.' })} className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
             Generate Portal Upload File
           </button>
           <span className="text-xs text-muted-foreground">Compatible with GRILL / auction portal format</span>

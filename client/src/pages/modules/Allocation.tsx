@@ -3,6 +3,7 @@
  * SOP-based allocation into Main & Supplement. Two-stage: categorization then allocation.
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { SplitSquareHorizontal, Sparkles, Play, Pause, RotateCcw, CheckCircle2, AlertTriangle, Filter, Download, Settings } from 'lucide-react';
 
@@ -33,7 +34,7 @@ export default function AllocationPage() {
             {simMode ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             {simMode ? 'Simulation Active' : 'Simulation Mode'}
           </button>
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
+          <button onClick={() => toast.success('SOP Allocation Running', { description: 'Applying 27 SOP rules across 2,847 lots. Main vs Supplementary split in progress.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
             <Sparkles className="w-4 h-4" />
             Run Allocation
           </button>

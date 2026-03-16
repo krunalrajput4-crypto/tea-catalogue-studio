@@ -3,6 +3,7 @@
  * Flowchart-style configurable hierarchy: CTC/Orthodox → Leaf/Dust → Grades
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { GitBranch, Sparkles, ChevronDown, ChevronRight, Plus, Settings, CheckCircle2, AlertCircle, Leaf } from 'lucide-react';
 
@@ -50,7 +51,9 @@ export default function CategorizationPage() {
           <p className="text-sm text-muted-foreground mt-1">Manufacturing type classification — configurable hierarchy</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
+          <button
+            onClick={() => toast.success('Auto-Classification Running', { description: 'AI engine is classifying 49 unclassified lots by grade pattern matching. This takes ~3 seconds.' })}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
             <Sparkles className="w-4 h-4" />
             Auto-Classify All
           </button>
@@ -85,7 +88,9 @@ export default function CategorizationPage() {
               <GitBranch className="w-4 h-4 text-primary" />
               Category Hierarchy
             </h4>
-            <button className="flex items-center gap-1 text-xs text-primary hover:underline">
+            <button
+              onClick={() => toast.info('Settings', { description: 'Go to Settings → Categorization to configure the grade hierarchy and add custom categories.' })}
+              className="flex items-center gap-1 text-xs text-primary hover:underline">
               <Settings className="w-3 h-3" />
               Configure in Settings
             </button>
@@ -135,7 +140,9 @@ export default function CategorizationPage() {
                                   {g}
                                 </span>
                               ))}
-                              <button className="px-2 py-1 rounded-md bg-primary/5 text-[10px] font-medium text-primary border border-primary/20 hover:bg-primary/10 transition-colors">
+                              <button
+                                onClick={() => toast.info('Add Grade', { description: 'Custom grade addition will be available in Settings → Categorization.' })}
+                                className="px-2 py-1 rounded-md bg-primary/5 text-[10px] font-medium text-primary border border-primary/20 hover:bg-primary/10 transition-colors">
                                 <Plus className="w-3 h-3 inline mr-0.5" />
                                 Add Grade
                               </button>
@@ -143,7 +150,9 @@ export default function CategorizationPage() {
                           )}
                         </div>
                       ))}
-                      <button className="flex items-center gap-1 px-2 py-1 text-[10px] text-primary hover:underline ml-5">
+                      <button
+                        onClick={() => toast.info('Add Tea Type', { description: 'Custom tea type addition will be available in Settings → Categorization.' })}
+                        className="flex items-center gap-1 px-2 py-1 text-[10px] text-primary hover:underline ml-5">
                         <Plus className="w-3 h-3" />
                         Add Tea Type
                       </button>
@@ -151,7 +160,9 @@ export default function CategorizationPage() {
                   )}
                 </div>
               ))}
-              <button className="flex items-center gap-1 px-2 py-1 text-xs text-primary hover:underline ml-5">
+              <button
+                onClick={() => toast.info('Add Category', { description: 'Custom category addition will be available in Settings → Categorization.' })}
+                className="flex items-center gap-1 px-2 py-1 text-xs text-primary hover:underline ml-5">
                 <Plus className="w-3 h-3" />
                 Add Category
               </button>

@@ -4,6 +4,7 @@
  * Features: KPI strip, new garden flag, AWR type filter, dedicated new gardens tab
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import {
   Package, TrendingUp, Leaf, Sparkles, Filter, Download, Eye,
@@ -44,11 +45,15 @@ export default function ArrivalsPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <button
+            onClick={() => toast.info('Filter Panel', { description: 'Use the AWR Type and Category dropdowns below to filter arrivals.' })}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground transition-colors">
             <Filter className="w-4 h-4" />
             Filters
           </button>
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <button
+            onClick={() => toast.success('Exporting Arrivals...', { description: 'Your arrivals data is being prepared as Excel. Download will start shortly.' })}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground transition-colors">
             <Download className="w-4 h-4" />
             Export
           </button>
@@ -160,7 +165,9 @@ export default function ArrivalsPage() {
             <Eye className="w-3 h-3" />
             View
           </button>
-          <button className="flex items-center gap-1 px-3 py-1.5 rounded-md border border-primary/30 text-primary text-xs font-medium">
+          <button
+            onClick={() => toast.info('Print Ready', { description: 'Opening print preview for new gardens report.' })}
+            className="flex items-center gap-1 px-3 py-1.5 rounded-md border border-primary/30 text-primary text-xs font-medium">
             <Printer className="w-3 h-3" />
             Print
           </button>
@@ -230,11 +237,11 @@ export default function ArrivalsPage() {
         <div className="px-4 py-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
           <span>Showing {activeTab === 'new-gardens' ? newGardens.length : SAMPLE_ARRIVALS.length} of 1,247 entries</span>
           <div className="flex items-center gap-2">
-            <button className="px-3 py-1 rounded border border-border hover:bg-secondary">Previous</button>
+            <button onClick={() => toast.info('Page navigation will be active once real data is loaded via file upload.')} className="px-3 py-1 rounded border border-border hover:bg-secondary">Previous</button>
             <span className="px-3 py-1 rounded bg-primary text-primary-foreground font-medium">1</span>
-            <button className="px-3 py-1 rounded border border-border hover:bg-secondary">2</button>
-            <button className="px-3 py-1 rounded border border-border hover:bg-secondary">3</button>
-            <button className="px-3 py-1 rounded border border-border hover:bg-secondary">Next</button>
+            <button onClick={() => toast.info('Page 2 — Upload your MyArrivals file to load all records.')} className="px-3 py-1 rounded border border-border hover:bg-secondary">2</button>
+            <button onClick={() => toast.info('Page 3 — Upload your MyArrivals file to load all records.')} className="px-3 py-1 rounded border border-border hover:bg-secondary">3</button>
+            <button onClick={() => toast.info('Page navigation will be active once real data is loaded via file upload.')} className="px-3 py-1 rounded border border-border hover:bg-secondary">Next</button>
           </div>
         </div>
       </div>

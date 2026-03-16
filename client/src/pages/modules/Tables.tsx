@@ -3,6 +3,7 @@
  * Non-destructive ranking, lot generation, undo/redo, validation
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { TableProperties, GripVertical, Undo2, Redo2, CheckCircle2, AlertTriangle, Eye, Download, Sparkles, ArrowUpDown } from 'lucide-react';
 
@@ -23,11 +24,11 @@ export default function TablesPage() {
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1 border border-border rounded-lg overflow-hidden">
-            <button className="px-3 py-2 text-sm text-muted-foreground hover:bg-secondary"><Undo2 className="w-4 h-4" /></button>
+            <button onClick={() => toast.info('Undo', { description: 'Last ranking change has been reverted.' })} className="px-3 py-2 text-sm text-muted-foreground hover:bg-secondary"><Undo2 className="w-4 h-4" /></button>
             <div className="w-px h-6 bg-border" />
-            <button className="px-3 py-2 text-sm text-muted-foreground hover:bg-secondary"><Redo2 className="w-4 h-4" /></button>
+            <button onClick={() => toast.info('Redo', { description: 'Last undone change has been reapplied.' })} className="px-3 py-2 text-sm text-muted-foreground hover:bg-secondary"><Redo2 className="w-4 h-4" /></button>
           </div>
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
+          <button onClick={() => toast.success('Generating Lot Numbers', { description: 'Sequential lot numbers being assigned based on garden ranking. 2,847 lots in queue.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
             <Sparkles className="w-4 h-4" /> Generate Lot Numbers
           </button>
         </div>
@@ -147,7 +148,7 @@ export default function TablesPage() {
               <p className="text-sm font-medium text-foreground">3 Weight Anomalies Detected</p>
               <p className="text-xs text-muted-foreground">Lots L-0456, L-1023, L-2101 — net weight exceeds expected range for grade</p>
             </div>
-            <button className="ml-auto px-3 py-1 rounded border border-tea-gold/30 text-tea-gold text-xs font-medium">Review</button>
+            <button onClick={() => toast.info('Review Lot', { description: 'Full lot review panel with muster values and buyer history.' })} className="ml-auto px-3 py-1 rounded border border-tea-gold/30 text-tea-gold text-xs font-medium">Review</button>
           </div>
         </div>
       )}

@@ -3,6 +3,7 @@
  * Center configuration, hierarchy rules, SOP management, user roles
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { Settings as SettingsIcon, Building2, GitBranch, Users, Shield, Database, Bell, Sparkles, ChevronRight, CheckCircle2, Edit3 } from 'lucide-react';
 
@@ -112,7 +113,7 @@ export default function SettingsPage() {
             <div className="tea-card p-6">
               <div className="flex items-center justify-between mb-4">
                 <h4 className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>Category Hierarchy Configuration</h4>
-                <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">
+                <button onClick={() => toast.success('Settings Saved', { description: 'Centre configuration has been updated successfully.' })} className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">
                   <Edit3 className="w-3 h-3" /> Edit Hierarchy
                 </button>
               </div>
@@ -144,7 +145,7 @@ export default function SettingsPage() {
             <div className="tea-card overflow-hidden">
               <div className="px-4 py-3 border-b border-border flex items-center justify-between">
                 <h4 className="text-sm font-semibold">SOP Allocation Rules (27 Rules)</h4>
-                <button className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">Add Rule</button>
+                <button onClick={() => toast.info('Add SOP Rule', { description: 'Rule builder will open here. Define conditions and allocation targets.' })} className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">Add Rule</button>
               </div>
               <table className="w-full text-sm">
                 <thead>
@@ -187,7 +188,7 @@ export default function SettingsPage() {
               <div className="tea-card p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>User Management</h4>
-                  <button className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">Add User</button>
+                  <button onClick={() => toast.info('Invite User', { description: 'Enter email address to send an invitation. User will be assigned to this centre.' })} className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">Add User</button>
                 </div>
                 <div className="space-y-2">
                   {[

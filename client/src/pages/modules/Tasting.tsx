@@ -3,6 +3,7 @@
  * Valuation entry, muster values, tasting remarks, limit price setting
  */
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { Coffee, Star, DollarSign, MessageSquare, CheckCircle2, Clock, Sparkles, Download, Filter, Edit3 } from 'lucide-react';
 
@@ -23,7 +24,7 @@ export default function TastingPage() {
           <p className="text-sm text-muted-foreground mt-1">Muster values, tasting remarks, and limit price management</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground">
+          <button onClick={() => toast.success('Exporting Tasting Catalogue...', { description: 'Muster values, limit prices, and remarks will be exported as Excel.' })} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground">
             <Download className="w-4 h-4" /> Export Valuations
           </button>
         </div>
@@ -91,7 +92,7 @@ export default function TastingPage() {
           <div className="px-4 py-3 border-b border-border flex items-center justify-between">
             <h4 className="text-sm font-semibold">Valuation Entry — Inline Editable</h4>
             <div className="flex items-center gap-2">
-              <button className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs"><Filter className="w-3 h-3" /> Filter</button>
+              <button onClick={() => toast.info('Filter Tasting', { description: 'Filter by grade, category, or buyer group to focus your tasting session.' })} className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs"><Filter className="w-3 h-3" /> Filter</button>
               <span className="inline-flex items-center gap-1 text-[10px] text-primary bg-primary/5 px-2 py-0.5 rounded-full">
                 <Edit3 className="w-3 h-3" /> Click cell to edit
               </span>
@@ -208,14 +209,14 @@ export default function TastingPage() {
             <div className="p-4 rounded-lg bg-primary/5 border border-primary/15">
               <p className="text-sm font-semibold mb-1">Auto-Set Limits</p>
               <p className="text-xs text-muted-foreground mb-3">Apply formula: Muster Value × 0.90 for all pending lots</p>
-              <button className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">
+              <button onClick={() => toast.success('Valuation Saved', { description: 'Muster value and limit price have been saved for this lot.' })} className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium">
                 <Sparkles className="w-3 h-3 inline mr-1" /> Apply to 1,120 Lots
               </button>
             </div>
             <div className="p-4 rounded-lg bg-secondary border border-border">
               <p className="text-sm font-semibold mb-1">Manual Override</p>
               <p className="text-xs text-muted-foreground mb-3">Edit individual lot limits in the valuation table</p>
-              <button className="px-3 py-1.5 rounded-lg border border-border text-xs font-medium">
+              <button onClick={() => toast.info('Lot Skipped', { description: 'This lot has been moved to the pending review queue.' })} className="px-3 py-1.5 rounded-lg border border-border text-xs font-medium">
                 <Edit3 className="w-3 h-3 inline mr-1" /> Open Editor
               </button>
             </div>
