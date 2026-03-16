@@ -19,8 +19,8 @@ import TastingPage from "./pages/modules/Tasting";
 import PostAuctionPage from "./pages/modules/PostAuction";
 import AnalyticsPage from "./pages/modules/Analytics";
 import SettingsPage from "./pages/modules/Settings";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="/" component={LandingPage} />

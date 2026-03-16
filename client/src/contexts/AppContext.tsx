@@ -1,50 +1,71 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 
 export type Region = 'north' | 'south';
 export type ViewType = 'auctions' | 'private';
 
-export interface Center {
+export interface Centre {
   id: string;
   name: string;
-  shortName: string;
+  fullName: string;
   region: Region;
 }
 
-export const CENTERS: Center[] = [
-  { id: 'ctta', name: 'CTTA (Calcutta Tea Traders Association)', shortName: 'CTTA', region: 'north' },
-  { id: 'gtac', name: 'GTAC (Guwahati Tea Auction Centre)', shortName: 'GTAC', region: 'north' },
-  { id: 'stac', name: 'STAC (Siliguri Tea Auction Centre)', shortName: 'STAC', region: 'north' },
-  { id: 'coonoor', name: 'Coonoor', shortName: 'Coonoor', region: 'south' },
-  { id: 'coimbatore', name: 'Coimbatore', shortName: 'Coimbatore', region: 'south' },
-  { id: 'cochin', name: 'Cochin', shortName: 'Cochin', region: 'south' },
+export const CENTRES: Centre[] = [
+  { id: 'ctta', name: 'CTTA', fullName: 'Calcutta Tea Traders Association', region: 'north' },
+  { id: 'gtac', name: 'GTAC', fullName: 'Guwahati Tea Auction Centre', region: 'north' },
+  { id: 'siliguri', name: 'Siliguri', fullName: 'Siliguri Tea Auction Centre', region: 'north' },
+  { id: 'coonoor', name: 'Coonoor', fullName: 'Coonoor Tea Auction Centre', region: 'south' },
+  { id: 'coimbatore', name: 'Coimbatore', fullName: 'Coimbatore Tea Auction Centre', region: 'south' },
+  { id: 'kochi', name: 'Kochi', fullName: 'Kochi Tea Auction Centre', region: 'south' },
 ];
 
 export const REGIONS = {
-  north: { id: 'north', name: 'North India', centers: CENTERS.filter(c => c.region === 'north') },
-  south: { id: 'south', name: 'South India', centers: CENTERS.filter(c => c.region === 'south') },
+  north: { id: 'north', name: 'North India', centres: CENTRES.filter(c => c.region === 'north') },
+  south: { id: 'south', name: 'South India', centres: CENTRES.filter(c => c.region === 'south') },
 };
 
+export interface SaleInfo {
+  id: number;
+  label: string;
+  saleNo: number;
+  saleYear: number;
+  status: string;
+}
+
 interface AppContextType {
-  selectedCenter: Center | null;
-  setSelectedCenter: (center: Center | null) => void;
+  // Centre / Region
+  selectedCentre: Centre | null;
+  setSelectedCentre: (centre: Centre | null) => void;
+  // View type
   viewType: ViewType;
   setViewType: (vt: ViewType) => void;
+  // Active sale
+  activeSale: SaleInfo | null;
+  setActiveSale: (sale: SaleInfo | null) => void;
+  // Upload modal
   uploadModalOpen: boolean;
   setUploadModalOpen: (open: boolean) => void;
+  // Current module
+  currentModule: string;
+  setCurrentModule: (m: string) => void;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [selectedCenter, setSelectedCenter] = useState<Center | null>(null);
+  const [selectedCentre, setSelectedCentre] = useState<Centre | null>(null);
   const [viewType, setViewType] = useState<ViewType>('auctions');
+  const [activeSale, setActiveSale] = useState<SaleInfo | null>(null);
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
+  const [currentModule, setCurrentModule] = useState('arrivals');
 
   return (
     <AppContext.Provider value={{
-      selectedCenter, setSelectedCenter,
+      selectedCentre, setSelectedCentre,
       viewType, setViewType,
+      activeSale, setActiveSale,
       uploadModalOpen, setUploadModalOpen,
+      currentModule, setCurrentModule,
     }}>
       {children}
     </AppContext.Provider>

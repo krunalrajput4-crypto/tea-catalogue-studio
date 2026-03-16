@@ -5,12 +5,12 @@
 import { useLocation, useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Leaf, Building2, Gavel, Lock, ArrowRight, Sparkles } from 'lucide-react';
-import { REGIONS, CENTERS, useApp } from '@/contexts/AppContext';
+import { REGIONS, CENTRES, useApp } from '@/contexts/AppContext';
 
 export default function CenterSelectPage() {
   const { regionId } = useParams<{ regionId: string }>();
   const [, navigate] = useLocation();
-  const { setSelectedCenter, setViewType } = useApp();
+  const { setSelectedCentre, setViewType } = useApp();
   const region = REGIONS[regionId as 'north' | 'south'];
 
   if (!region) {
@@ -19,9 +19,9 @@ export default function CenterSelectPage() {
   }
 
   const handleCenterSelect = (centerId: string, view: 'auctions' | 'private') => {
-    const center = CENTERS.find(c => c.id === centerId);
+    const center = CENTRES.find(c => c.id === centerId);
     if (center) {
-      setSelectedCenter(center);
+      setSelectedCentre(center);
       setViewType(view);
       navigate(`/center/${centerId}/${view}/arrivals`);
     }
@@ -75,7 +75,7 @@ export default function CenterSelectPage() {
 
         {/* Center Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {region.centers.map((center, i) => (
+          {region.centres.map((center, i) => (
             <motion.div
               key={center.id}
               initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ export default function CenterSelectPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {center.shortName}
+                      {center.name}
                     </h3>
                     <p className="text-xs text-muted-foreground">{center.name}</p>
                   </div>

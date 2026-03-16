@@ -13,7 +13,7 @@ import {
   ChevronRight, PanelLeftClose, PanelLeft, Bell, Search, User,
   X, FileSpreadsheet, CheckCircle2, AlertCircle
 } from 'lucide-react';
-import { CENTERS, type ViewType } from '@/contexts/AppContext';
+import { CENTRES, type ViewType } from '@/contexts/AppContext';
 import { cn } from '@/lib/utils';
 
 interface DashboardLayoutProps {
@@ -43,7 +43,7 @@ export default function DashboardLayout({ children, centerId, viewType }: Dashbo
   const [, navigate] = useLocation();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
-  const center = CENTERS.find(c => c.id === centerId);
+  const center = CENTRES.find(c => c.id === centerId);
   const currentPath = window.location.pathname;
   const currentModule = currentPath.split('/').pop() || 'arrivals';
 
@@ -82,7 +82,7 @@ export default function DashboardLayout({ children, centerId, viewType }: Dashbo
             >
               <Building2 className="w-4 h-4 text-sidebar-primary shrink-0" />
               <div className="flex-1 text-left overflow-hidden">
-                <p className="text-xs font-semibold text-sidebar-foreground truncate">{center.shortName}</p>
+                <p className="text-xs font-semibold text-sidebar-foreground truncate">{center.name}</p>
                 <p className="text-[10px] text-sidebar-foreground/50">{center.region === 'north' ? 'North India' : 'South India'}</p>
               </div>
               <ChevronDown className="w-3 h-3 text-sidebar-foreground/40" />
@@ -221,7 +221,7 @@ export default function DashboardLayout({ children, centerId, viewType }: Dashbo
           <div className="flex items-center gap-2 text-sm">
             <span className="text-muted-foreground">{center.region === 'north' ? 'North India' : 'South India'}</span>
             <ChevronRight className="w-3 h-3 text-muted-foreground" />
-            <span className="text-muted-foreground">{center.shortName}</span>
+            <span className="text-muted-foreground">{center.name}</span>
             <ChevronRight className="w-3 h-3 text-muted-foreground" />
             <span className="font-medium text-foreground flex items-center gap-1.5">
               {viewType === 'auctions' ? <Gavel className="w-3 h-3" /> : <Lock className="w-3 h-3" />}
