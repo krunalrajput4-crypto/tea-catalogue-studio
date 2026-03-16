@@ -40,55 +40,75 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+
+  /* Tea Industry Design Tokens */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'Fira Code', monospace;
-  --color-tea-green: oklch(0.45 0.12 155);
-  --color-tea-green-light: oklch(0.92 0.04 155);
-  --color-tea-gold: oklch(0.72 0.12 80);
-  --color-tea-gold-light: oklch(0.94 0.04 80);
-  --color-tea-brown: oklch(0.30 0.04 50);
-  --color-tea-brown-light: oklch(0.50 0.04 50);
-  --color-tea-terracotta: oklch(0.55 0.18 30);
-  --color-tea-sage: oklch(0.60 0.06 150);
-  --color-tea-parchment: oklch(0.97 0.01 85);
-  --color-tea-cream: oklch(0.99 0.005 85);
+
+  /* Brand Colors - matching Lovable theme */
+  --color-forest-dark:   oklch(0.20 0.06 155);   /* #162416 - sidebar bg */
+  --color-forest-mid:    oklch(0.24 0.07 155);   /* #1c3320 - sidebar hover */
+  --color-forest-light:  oklch(0.30 0.08 155);   /* #2d4a2d - active item */
+  --color-forest-hero:   oklch(0.18 0.06 155);   /* #1a2e1a - hero bg */
+  --color-amber-gold:    oklch(0.72 0.14 75);    /* #d4a017 - primary CTA */
+  --color-amber-light:   oklch(0.82 0.12 75);    /* lighter gold */
+  --color-amber-dark:    oklch(0.55 0.12 75);    /* darker gold */
+  --color-cream:         oklch(0.975 0.006 85);  /* #f8f7f4 - content bg */
+  --color-cream-card:    oklch(0.995 0.003 85);  /* #ffffff - card bg */
+  --color-tea-green:     oklch(0.50 0.14 155);   /* chart green */
+  --color-tea-teal:      oklch(0.55 0.12 200);   /* chart teal */
+  --color-tea-purple:    oklch(0.45 0.18 290);   /* chart purple */
 }
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.97 0.008 85);
-  --foreground: oklch(0.25 0.03 50);
-  --card: oklch(0.995 0.003 85);
-  --card-foreground: oklch(0.25 0.03 50);
-  --popover: oklch(0.995 0.003 85);
-  --popover-foreground: oklch(0.25 0.03 50);
-  --primary: oklch(0.42 0.12 155);
-  --primary-foreground: oklch(0.98 0.005 155);
-  --secondary: oklch(0.94 0.02 85);
-  --secondary-foreground: oklch(0.35 0.03 50);
-  --muted: oklch(0.94 0.01 85);
+
+  /* Content area - light cream */
+  --background: oklch(0.975 0.006 85);
+  --foreground: oklch(0.15 0.02 50);
+  --card: oklch(0.998 0.002 85);
+  --card-foreground: oklch(0.15 0.02 50);
+  --popover: oklch(0.998 0.002 85);
+  --popover-foreground: oklch(0.15 0.02 50);
+
+  /* Primary = amber/gold */
+  --primary: oklch(0.72 0.14 75);
+  --primary-foreground: oklch(0.12 0.02 50);
+
+  /* Secondary = dark forest green outline */
+  --secondary: oklch(0.22 0.07 155);
+  --secondary-foreground: oklch(0.95 0.01 85);
+
+  --muted: oklch(0.94 0.008 85);
   --muted-foreground: oklch(0.50 0.02 50);
+
+  /* Accent = light green tint */
   --accent: oklch(0.92 0.04 155);
-  --accent-foreground: oklch(0.25 0.08 155);
+  --accent-foreground: oklch(0.22 0.07 155);
+
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.88 0.015 85);
-  --input: oklch(0.90 0.01 85);
-  --ring: oklch(0.42 0.12 155);
-  --chart-1: oklch(0.45 0.12 155);
-  --chart-2: oklch(0.72 0.12 80);
-  --chart-3: oklch(0.55 0.18 30);
-  --chart-4: oklch(0.60 0.06 150);
-  --chart-5: oklch(0.30 0.04 50);
-  --sidebar: oklch(0.22 0.03 50);
-  --sidebar-foreground: oklch(0.88 0.01 85);
-  --sidebar-primary: oklch(0.55 0.14 155);
-  --sidebar-primary-foreground: oklch(0.98 0.005 155);
-  --sidebar-accent: oklch(0.28 0.03 50);
-  --sidebar-accent-foreground: oklch(0.92 0.01 85);
-  --sidebar-border: oklch(0.30 0.02 50);
-  --sidebar-ring: oklch(0.55 0.14 155);
+  --border: oklch(0.88 0.012 85);
+  --input: oklch(0.92 0.008 85);
+  --ring: oklch(0.72 0.14 75);
+
+  /* Charts - green, teal, purple, amber, gray */
+  --chart-1: oklch(0.50 0.14 155);
+  --chart-2: oklch(0.55 0.12 200);
+  --chart-3: oklch(0.45 0.18 290);
+  --chart-4: oklch(0.72 0.14 75);
+  --chart-5: oklch(0.60 0.02 50);
+
+  /* Sidebar - dark forest green */
+  --sidebar: oklch(0.20 0.06 155);
+  --sidebar-foreground: oklch(0.92 0.01 85);
+  --sidebar-primary: oklch(0.72 0.14 75);
+  --sidebar-primary-foreground: oklch(0.12 0.02 50);
+  --sidebar-accent: oklch(0.26 0.07 155);
+  --sidebar-accent-foreground: oklch(0.95 0.01 85);
+  --sidebar-border: oklch(0.28 0.06 155);
+  --sidebar-ring: oklch(0.72 0.14 75);
 }
 
 @layer base {
@@ -97,7 +117,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -110,8 +130,9 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
-  h1, h2, h3 {
-    font-family: 'Playfair Display', Georgia, serif;
+  h1, h2, h3, h4 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
   }
 }
 
@@ -128,120 +149,225 @@
     min-width: 0;
   }
   @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
   }
   @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1280px;
-    }
+    .container { padding-left: 2rem; padding-right: 2rem; max-width: 1400px; }
   }
-  .font-display {
-    font-family: 'Playfair Display', Georgia, serif;
-  }
-  .font-mono {
-    font-family: 'Fira Code', monospace;
-  }
+
+  /* ── Tea Card ── */
   .tea-card {
     @apply bg-card rounded-lg border border-border shadow-sm;
-    background-image: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(250,248,240,0.4) 100%);
   }
-  .tea-badge-green {
-    display: inline-flex;
+
+  /* ── Sidebar nav item ── */
+  .sidebar-nav-item {
+    display: flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
+    gap: 0.625rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    background-color: oklch(0.92 0.04 155);
-    color: oklch(0.45 0.12 155);
+    color: oklch(0.75 0.02 85);
+    transition: background 0.15s, color 0.15s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .sidebar-nav-item:hover {
+    background: oklch(0.26 0.07 155);
+    color: oklch(0.95 0.01 85);
+  }
+  .sidebar-nav-item.active {
+    background: oklch(0.28 0.08 155);
+    color: oklch(0.98 0.005 85);
+  }
+  .sidebar-step-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.375rem;
+    height: 1.375rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: oklch(0.30 0.07 155);
+    color: oklch(0.70 0.02 85);
+    flex-shrink: 0;
+  }
+  .sidebar-step-badge.active {
+    background: oklch(0.72 0.14 75);
+    color: oklch(0.12 0.02 50);
+  }
+  .sidebar-step-badge.completed {
+    background: oklch(0.50 0.14 155);
+    color: white;
+  }
+
+  /* ── Badges ── */
+  .tea-badge-green {
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    padding: 0.125rem 0.5rem; border-radius: 9999px;
+    font-size: 0.75rem; font-weight: 500;
+    background-color: oklch(0.92 0.06 155);
+    color: oklch(0.28 0.10 155);
   }
   .tea-badge-gold {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    background-color: oklch(0.94 0.04 80);
-    color: oklch(0.30 0.04 50);
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    padding: 0.125rem 0.5rem; border-radius: 9999px;
+    font-size: 0.75rem; font-weight: 500;
+    background-color: oklch(0.94 0.06 75);
+    color: oklch(0.35 0.08 75);
   }
   .tea-badge-new {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 0.625rem;
-    font-weight: 700;
-    background-color: oklch(0.94 0.08 155);
-    color: oklch(0.30 0.10 155);
-    border: 1px solid oklch(0.80 0.10 155);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    padding: 0.125rem 0.5rem; border-radius: 9999px;
+    font-size: 0.625rem; font-weight: 700;
+    background-color: oklch(0.92 0.08 155);
+    color: oklch(0.25 0.10 155);
+    border: 1px solid oklch(0.75 0.10 155);
+    text-transform: uppercase; letter-spacing: 0.05em;
   }
   .tea-badge-brown {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    padding: 0.125rem 0.5rem; border-radius: 9999px;
+    font-size: 0.75rem; font-weight: 500;
     background-color: oklch(0.90 0.03 50);
     color: oklch(0.28 0.06 50);
   }
   .tea-badge-red {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    padding: 0.125rem 0.5rem; border-radius: 9999px;
+    font-size: 0.75rem; font-weight: 500;
     background-color: oklch(0.94 0.06 25);
     color: oklch(0.40 0.15 25);
   }
   .ai-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 9999px;
-    font-size: 0.625rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, oklch(0.45 0.12 155), oklch(0.45 0.12 220));
-    color: white;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    padding: 0.125rem 0.5rem; border-radius: 9999px;
+    font-size: 0.625rem; font-weight: 700;
+    background: linear-gradient(135deg, oklch(0.50 0.14 155), oklch(0.45 0.14 200));
+    color: white; letter-spacing: 0.05em; text-transform: uppercase;
   }
+
+  /* ── Analytics widgets ── */
   .analytics-widget {
     position: relative;
     transition: box-shadow 0.2s, transform 0.1s;
   }
-  .analytics-widget:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  }
+  .analytics-widget:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
   .analytics-widget.is-dragging {
     box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     transform: scale(1.02);
     z-index: 50;
   }
-  .drag-handle {
-    cursor: grab;
-    opacity: 0.4;
-    transition: opacity 0.2s;
-  }
+  .drag-handle { cursor: grab; opacity: 0.4; transition: opacity 0.2s; }
   .drag-handle:hover { opacity: 1; }
   .drag-handle:active { cursor: grabbing; }
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
+
+  /* ── Upload drop zone ── */
+  .upload-dropzone {
+    border: 2px dashed oklch(0.80 0.02 85);
+    border-radius: 0.5rem;
+    background: oklch(0.98 0.004 85);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .upload-dropzone:hover, .upload-dropzone.drag-over {
+    border-color: oklch(0.50 0.14 155);
+    background: oklch(0.96 0.02 155);
+  }
+
+  /* ── KPI card ── */
+  .kpi-card {
+    @apply bg-card rounded-lg border border-border p-5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .kpi-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: oklch(0.15 0.02 50);
+    line-height: 1;
+  }
+  .kpi-label {
+    font-size: 0.8rem;
+    color: oklch(0.50 0.02 50);
+    margin-top: 0.25rem;
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    background: white;
+    border-bottom: 1px solid oklch(0.90 0.01 85);
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    gap: 1rem;
+  }
+  .breadcrumb-text {
+    font-size: 0.8rem;
+    color: oklch(0.55 0.02 50);
+  }
+  .breadcrumb-separator {
+    color: oklch(0.70 0.01 50);
+    margin: 0 0.25rem;
+  }
+  .breadcrumb-current {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: oklch(0.20 0.03 50);
+  }
+
+  /* ── Hero (landing) ── */
+  .hero-dark {
+    background: oklch(0.18 0.06 155);
+    min-height: 100vh;
+  }
+  .hero-feature-card {
+    background: oklch(0.22 0.07 155);
+    border: 1px solid oklch(0.28 0.06 155);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    transition: background 0.2s;
+  }
+  .hero-feature-card:hover {
+    background: oklch(0.26 0.07 155);
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: oklch(0.75 0.015 70); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: oklch(0.60 0.025 70); }
+  ::-webkit-scrollbar-thumb { background: oklch(0.78 0.01 85); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: oklch(0.65 0.02 85); }
+
+  /* ── Warning / info banner ── */
+  .info-banner {
+    background: oklch(0.97 0.05 85);
+    border: 1px solid oklch(0.88 0.08 75);
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: oklch(0.40 0.08 75);
+  }
+
+  /* ── Table styles ── */
+  .tea-table th {
+    background: oklch(0.96 0.006 85);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: oklch(0.45 0.02 50);
+    padding: 0.625rem 0.875rem;
+    border-bottom: 1px solid oklch(0.88 0.01 85);
+  }
+  .tea-table td {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid oklch(0.93 0.006 85);
+    color: oklch(0.25 0.02 50);
+  }
+  .tea-table tr:hover td {
+    background: oklch(0.975 0.008 155);
+  }
 }

@@ -190,7 +190,11 @@ export const lots = mysqlTable("lots", {
 });
 
 // ─────────────────────────────────────────────
-// BIBLE / AWR REFERENCE DATA
+// BIBLE / AWR HISTORICAL REFERENCE DATA
+// ⚠️  ANALYTICS ONLY — sourced from 2024 & 2025 Bible Excel files
+// ⚠️  NOT used by any operational module (Arrivals, Stock, Categorization,
+//     Allocation, Tables, Catalogue, Sampling, Tasting, Post-Auction)
+// ⚠️  All operational modules use the `arrivals` table exclusively
 // ─────────────────────────────────────────────
 export const bibleRecords = mysqlTable("bible_records", {
   id: int("id").autoincrement().primaryKey(),
